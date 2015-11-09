@@ -1,0 +1,21 @@
+en:
+  create_event: Create event
+  site_title: Grevent application
+  all_events: All events
+  no_current_events: Currently there are no active events
+  begin_create_event: You can create a new event
+  event_name: Event name
+  what: What
+  why: Why
+  where: Where
+  when: When
+  event_description: Event description and anything else you may want to add
+  event_starts: Starts
+  event_ends: Ends
+  event_runs_for: Runs for
+  venue_name: Venue name
+  venue_address: Venue address
+  lets_go: "Let's go!"
+  go_now: "NOW! (Save and publish event)"
+  go_later: "Later. (Save and publish later)"
+  date_overlap_validation: "End time should occur after start time"

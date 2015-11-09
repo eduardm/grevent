@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]>
+<html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]>
+<html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <title>VantanoServer</title>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <!--[if lt IE9]>
+        <%= stylesheet_link_tag 'ie/index', media: 'all' %>
+        <%= javascript_include_tag 'ie/index' %>
+    <![endif]-->
+
+</head>
+
+<body class="no-skin">
+
+<%= render :partial => "shared/navbar_login" %>
+
+<div class="main-container">
+
+    <%= render :partial => "shared/bar_messages" %>
+
+    <div class="main-content">
+        <div class="row">
+
+            <%= yield %>
+
+        </div>
+    </div>
+</div>
+
+
+<!--[if IE]>
+    <script type="text/javascript">
+        window.jQuery || document.write("<script src='<%= javascript_url 'jquery1x' %>'>" + "<" + "/script>");
+    </script>
+<![endif]-->
+<script type="text/javascript">
+    if ('ontouchstart' in document.documentElement) document.write("<script src='<%= javascript_url 'jquery.mobile.custom' %>'>" + "<" + "/script>");
+</script>
+</body>
+</html>
