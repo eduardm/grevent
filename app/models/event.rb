@@ -4,7 +4,8 @@ class Event < ActiveRecord::Base
   belongs_to :owner, :class_name => User
   belongs_to :location
 
-  has_many :attendees, :class_name => User, :through => :participants
+  has_many :participants
+  has_many :users, :through => :participants
 
   before_validation :set_duration_and_end_time
 
@@ -34,7 +35,10 @@ class Event < ActiveRecord::Base
 
 
   def is_created(venue)
-    return self.save if venue.save
+    if venue.save
+      self.location = venue
+      return self.save
+    end
     self.valid?
     self.validate_venue(venue)
     false

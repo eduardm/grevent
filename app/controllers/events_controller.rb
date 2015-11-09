@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.active
     respond_to do |format|
       format.html { render :index }
       format.json { render :json => @events.to_json(:include => [:location => {:only => [:id, :venue_name, :venue_address]}]) }
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     respond_to do |format|
-      format.html { render :show }
+      format.html { redirect_to :action => :index} #not implemented
       format.json { render :json => @event.to_json(:include => [:location => {:only => [:id, :venue_name, :venue_address]}]) }
     end
   end
@@ -35,11 +35,11 @@ class EventsController < ApplicationController
   def create
     @venue = Location.new(venue_name: params[:venue_name], venue_address: params[:venue_address])
     @event = Event.new(event_params)
-
+    @event.owner = current_user
 
     respond_to do |format|
       if @event.is_created(@venue)
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to events_url, notice: I18n.translate(:event_created) }
         format.json { render :json => @event.to_json(:include => [:location => {:only => [:id, :venue_name, :venue_address]}]), status: :created }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to events_url, notice: I18n.translate(:event_updated) }
         format.json { render :json => @event.to_json(:include => [:location => {:only => [:id, :venue_name, :venue_address]}]), status: :updated }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class EventsController < ApplicationController
   def destroy
     @event.update_attribute(:status, Event::EVENT_STATUS[:deleted])
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: I18n.translate(:event_deleted) }
       format.json { head :no_content }
     end
   end

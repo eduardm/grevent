@@ -51,6 +51,7 @@ test:
 #
 production:
   <<: *default
+  host: 10.11.3.4
   database: grevent_production
   username: grevent
   password: <%= ENV['GREVENT_DATABASE_PASSWORD'] %>

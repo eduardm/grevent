@@ -204,7 +204,7 @@ RSpec.describe EventsController, type: :controller do
 
       it "redirects to the created event" do
         post :create, create_params, {}
-        expect(response).to redirect_to(Event.last)
+        expect(response).to redirect_to(Event)
       end
     end
 
@@ -254,7 +254,7 @@ RSpec.describe EventsController, type: :controller do
       it "redirects to the event" do
         event = Event.create! valid_attributes
         put :update, {:id => event.to_param, :event => valid_attributes}, {}
-        expect(response).to redirect_to(event)
+        expect(response).to redirect_to("/events")
       end
     end
 

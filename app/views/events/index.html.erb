@@ -16,47 +16,43 @@
                         <tr>
                             <th>
                                 <i class="ace-icon fa fa-picture-o"></i>
-                                <%= t :mediaFile %>
+                                <%= t :event_name %>
                             </th>
                             <th>
                                 <i class="ace-icon fa fa-align-center"></i>
-                                <%= t :name %>
+                                <%= t :description %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa fa-arrows"></i>
-                                <%= t :scalingMode %>
+                                <i class="ace-icon fa fa-arrow-up"></i>
+                                <%= t :event_starts %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa fa-cogs"></i>
-                                <%= t :mediaType %>
+                                <i class="ace-icon fa fa-arrow-down"></i>
+                                <%= t :event_ends %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa  fa-arrows-v"></i>
-                                <%= t :size %>
+                                <i class="ace-icon fa  fa-clock-o"></i>
+                                <%= t :event_runs_for %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa fa-folder-o"></i>
-                                <%= t :includeInPresentation %>
+                                <i class="ace-icon fa fa-map-marker"></i>
+                                <%= t :where %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa fa-tablet"></i>
-                                <%= t :noOfDevices %>
+                                <i class="ace-icon fa  fa-hand-o-up"></i>
+                                <%= t :created_by %>
                             </th>
 
                             <th>
-                                <i class="ace-icon fa fa-retweet"></i>
-                                <%= t :noOfRuns %>
+                                <i class="ace-icon fa fa-group"></i>
+                                <%= t :participants %>
                             </th>
 
-                            <th>
-                                <i class="ace-icon fa fa-clock-o"></i>
-                                <%= t :createdAt %>
-                            </th>
 
                             <th>
                                 <i class="ace-icon fa fa-cogs"></i>
@@ -70,22 +66,18 @@
                         <% @events.each do |event| %>
                             <tr>
                                 <td><%= event.name %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%=  %></td>
-                                <td><%= format_time event.created_at %></td>
+                                <td><%= truncate(event.description, length: 50) %></td>
+                                <td><%= format_time event.start_time %></td>
+                                <td><%= format_time event.end_time %></td>
+                                <td><%= event.duration %></td>
+                                <td><%= event.location.venue_address %></td>
+                                <td><%= event.owner.name %></td>
+                                <td><%= event.users.size %></td>
                                 <td>
-                                    <a href="<%= event_url(event) %>" class="btn btn-app btn-primary btn-xs">
-                                        <i class="ace-icon fa fa-caret-right"></i><%= t :show %>
-                                    </a>
                                     <a href="<%= edit_event_url(event) %>" class="btn btn-app btn-primary btn-xs">
                                         <i class="ace-icon fa fa-edit"></i><%= t :edit %>
                                     </a>
-                                    <%= link_to( event_url(event), method: :delete, data: {confirm: t(:areYouSure)}, class: "btn btn-app btn-danger btn-xs") do %>
+                                    <%= link_to( event_url(event), method: :delete, data: {confirm: t(:are_you_sure)}, class: "btn btn-app btn-danger btn-xs") do %>
                                         <i class="ace-icon fa fa-trash-o"></i><%= t :delete %>
                                     <% end %>
                                 </td>

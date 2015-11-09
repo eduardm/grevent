@@ -1,0 +1,1 @@
+server 'eduardmartini.work', user: 'deployer', roles: %w{web app}

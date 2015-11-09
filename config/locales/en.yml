@@ -19,3 +19,14 @@ en:
   go_now: "NOW! (Save and publish event)"
   go_later: "Later. (Save and publish later)"
   date_overlap_validation: "End time should occur after start time"
+  created_by: Created by
+  actions: Actions
+  participants: Participants
+  show: Show
+  edit: Edit
+  delete: Delete
+  are_you_sure: Are you sure?
+  description: Description
+  event_created: 'Event was successfully created.'
+  event_updated: 'Event was successfully updated.'
+  event_deleted: 'Event was successfully deleted.'

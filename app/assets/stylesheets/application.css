@@ -21,7 +21,12 @@
  *= require daterangepicker
  *= require fullcalendar
  *= require ace
- *= require vantano
- *= require businessHours
  *= require_self
  */
+
+.clock-selector {
+    width: 38px;
+    height: 34px;
+    position: relative;
+    left: -38px;
+}

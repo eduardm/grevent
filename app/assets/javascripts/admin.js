@@ -1,3 +1,0 @@
-$(function() {
-    $("#logsTable").dataTable()
-});
