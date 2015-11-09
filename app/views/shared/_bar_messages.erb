@@ -1,0 +1,48 @@
+<% if flash[:error] %>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="ace-icon fa fa-times"></i>
+        </button>
+
+        <strong>
+            <i class="ace-icon fa fa-bolt"></i>
+        </strong>
+        <%= flash[:error] %>
+    </div>
+<% end %>
+
+<% if flash[:warning] %>
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="ace-icon fa fa-times"></i>
+        </button>
+
+        <strong><i class="ace-icon fa fa-exclamation"></i></strong>
+        <%= flash[:warning] %>
+    </div>
+<% end %>
+
+<% if flash[:success] %>
+    <div class="alert alert-block alert-success">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="ace-icon fa fa-times"></i>
+        </button>
+
+        <strong>
+            <i class="ace-icon fa fa-check"></i>
+        </strong>
+        <%= flash[:success] %>
+    </div>
+<% end %>
+
+<% if flash[:notice] %>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            <i class="ace-icon fa fa-times"></i>
+        </button>
+        <strong>
+            <i class="ace-icon fa fa-info-circle"></i>
+        </strong>
+        <%= flash[:notice] %>
+    </div>
+<% end %>

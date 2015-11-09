@@ -1,0 +1,67 @@
+.businessHours-container {
+  width: 100%;
+  font-size: 12px;
+  line-height: 1.15em;
+  color: #fff;
+}
+
+.businessHours-container .days-labels {
+  width: 100%;
+  color: #3a87ad;
+  line-height: 2em;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.businessHours-container .day-label {
+  width: 12.5%;
+  float: right;
+}
+
+.businessHours-container .hours-labels {
+  width: 12.5%;
+  float: left;
+  color: #3a87ad;
+  //line-height: 2em;
+  font-weight: bold;
+  //font-size: 14px;
+}
+
+.businessHours-container .hours-labels span {
+  width: 70%
+}
+
+.businessHours-container .hour-label {
+  width: 100%;
+  //margin: 5px 0 0 0;
+  padding-top: 2.498em;
+}
+
+.businessHours-container .days-hours {
+  width: 87.5%;
+  float: left;
+  background: #f89406;
+  margin: 25px 0 0 0;
+}
+
+.businessHours-container .day-hour {
+  width: 14.285%;
+  float: left;
+  //border-bottom: 1px solid #abbac3;
+  border-bottom: 1px solid #f89406;
+  //border-right: 1px solid #3a87ad;
+  line-height: 2.5em;
+
+  height: 30px;
+}
+
+.businessHours-container .ui-selectee {
+  background: #82af6f;
+  cursor: crosshair;
+}
+
+.businessHours-container .ui-selected {
+  background: #3a87ad !important;
+}
+
+.businessHours-container .ui-selecting { background: #FECA40; }
